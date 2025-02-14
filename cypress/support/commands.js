@@ -23,3 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+/*Cypress.Commands.add("openWebSize", () => {
+  beforeEach(() => {
+    const tamPantalla = Cypress.env("viewportmobile").device;
+    cy.viewport(tamPantalla);
+  });
+});*/
+
+/**
+ * Abre la la URL en tamaño de pantalla desktop  o mobile
+ * @method {openWeb}
+ */
+Cypress.Commands.add("openWeb", () => {
+  let tamPantalla;
+
+  if (Cypress.env("type") === "mobile") {
+    tamPantalla = Cypress.env("viewportmobile").device;
+  } else {
+    tamPantalla = Cypress.env("viewportdesktop").device;
+  }
+
+  cy.viewport(tamPantalla);
+});

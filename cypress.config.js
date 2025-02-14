@@ -6,7 +6,19 @@ const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 module.exports = defineConfig({
-  env: {},
+  env: {
+    TAGS: "not @ignore",
+    //Configuracion de URLS
+    POKEMON_URL: "https://www.pokemon.com/el",
+    DARWOFT_URL: "https://www.darwoft.com/",
+    //Configuracion de dispositivos
+    viewportmobile: {
+      device: "iphone-xr",
+    },
+    viewportdesktop: {
+      device: "macbook-16",
+    },
+  },
   e2e: {
     specPattern: "cypress/e2e/features/**.feature",
     async setupNodeEvents(on, config) {
