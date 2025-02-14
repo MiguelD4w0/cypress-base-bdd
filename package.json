@@ -7,7 +7,9 @@
     "node": ">=22.11.0"
   },
   "scripts": {
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "cypress:open:desktop": "npx cypress open --e2e --browser chrome -e type=desktop",
+    "cypress:open:mobile": "npx cypress open --e2e --browser chrome -e type=mobile"
   },
   "keywords": [
     "cypress",
