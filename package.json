@@ -20,6 +20,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "ajv": "^8.17.1",
     "cypress": "^14.0.2",
     "oracledb": "^6.6.0"
   },
