@@ -31,6 +31,22 @@
   });
 });*/
 
+//AJV
+const Ajv = require("ajv");
+
+const ajv = new Ajv();
+
+Cypress.Commands.add("ValidarShchema", (schemaName, servicioName) => {
+  cy.fixture(`schemas/${schemaName}.json`).then((schema) => {
+    //hacer algo con el schema
+    cy.fixture(`autogenerado/${servicioName}.json`).then((dataServicio) => {
+      const validate = ajv.compile(schema);
+      const valid = validate(dataServicio);
+      if (!valid) console.log(validate.errors);
+    });
+  });
+});
+
 /**
  * Abre la la URL en tamaño de pantalla desktop  o mobile
  * @method {openWeb}
